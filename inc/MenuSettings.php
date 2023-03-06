@@ -8,6 +8,7 @@ class MenuSettings
     public function __construct()
     {
         add_action( 'admin_head', [$this,'add_style'] );
+        add_action( 'admin_footer', [$this,'add_js'] );
         add_action('admin_bar_menu', [$this, 'ninja_support_shortcuts'], 999);
 
     }
@@ -26,14 +27,44 @@ class MenuSettings
         echo $styles;
     }
 
+    public function add_js(){
+
+        $script = "<script type='text/javascript'>
+
+                       function copyLoremIpsum(givenLength){
+                           
+                           let text = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
+                            
+                           let newLength;
+                           
+                           if(givenLength == 0){
+                               newLength = prompt('Enter value', '');
+                           }else{
+                               newLength = givenLength;
+                           }
+                           let filteredText = text.slice(0, newLength);
+                            setTimeout(() => {
+                                   navigator.clipboard.writeText(filteredText).then(() => {
+                                      alert(newLength+' characters copied to clipboard');
+                                      /* Resolved - text copied to clipboard successfully */
+                                    },() => {
+                                      console.error('Failed to copy');
+                                      /* Rejected - text failed to copy to the clipboard */
+                                    });
+                            }, 500);
+                       }
+                  </script>";
+        echo $script;
+    }
+
     public function NinjaSupportGetMenuItems(){
 
         $menu_items = [
 
             'ninja-support-shortcuts-menu' => [
                 'parent'     => '',
-                'title'      => '<img src="'.NINJA_SHORTCUTS_DIR_URL.'assets/images/WPMN.svg" / clss="ns_addon_icon"><span>Ninja Support Shortcuts</span>',
-                'url'        => false,
+                'title'      => '<span><img src="'.NINJA_SHORTCUTS_DIR_URL.'assets/images/WPMN.svg" style="height: 18px;margin: -3px;"></span><span style="margin-left: 6px;">Ninja Support Shortcuts</span>',
+                'url'        => '#',
                 'meta'       => array( 'background'=>'white' )
             ],
 
@@ -121,6 +152,57 @@ class MenuSettings
                 'url'    => 'admin.php?page=wppayform_settings#license',
             ],
 
+            'lorem-ipsum-shortcut' => [
+                'parent' => 'ninja-support-shortcuts-menu',
+                'title'  => 'Lorem Ipsum Clipboard',
+                'url'    => '#',
+            ],
+
+            'lorem-ipsum-50' => [
+                'parent' => 'lorem-ipsum-shortcut',
+                'title'  => 'Copy 50 Characters',
+                'url'    => '#',
+                'meta'   => [
+                     'onclick' => 'copyLoremIpsum(50); return false;',
+                ]
+            ],
+
+            'lorem-ipsum-100' => [
+                'parent' => 'lorem-ipsum-shortcut',
+                'title'  => 'Copy 100 Characters',
+                'url'    => '#',
+                'meta'   => [
+                    'onclick' => 'copyLoremIpsum(100); return false;',
+                ]
+            ],
+
+            'lorem-ipsum-200' => [
+                'parent' => 'lorem-ipsum-shortcut',
+                'title'  => 'Copy 200 Characters',
+                'url'    => '#',
+                'meta'   => [
+                    'onclick' => 'copyLoremIpsum(200); return false;',
+                ]
+            ],
+
+            'lorem-ipsum-500' => [
+                'parent' => 'lorem-ipsum-shortcut',
+                'title'  => 'Copy 500 Characters',
+                'url'    => '#',
+                'meta'   => [
+                    'onclick' => 'copyLoremIpsum(500); return false;',
+                ]
+            ],
+
+            'lorem-ipsum-customize' => [
+                'parent' => 'lorem-ipsum-shortcut',
+                'title'  => 'Enter value for customize length',
+                'url'    => '#',
+                'meta'   => [
+                    'onclick' => 'copyLoremIpsum(0); return false;',
+                ]
+            ],
+
 
 
         ];
@@ -146,6 +228,7 @@ class MenuSettings
                     'parent' => ArrayHelper::get($item, 'parent'),
                     'title'  => ArrayHelper::get($item, 'title'),
                     'href'   => admin_url(ArrayHelper::get($item, 'url')),
+                    'meta'    => ArrayHelper::get($item, 'meta')
                 ]
             );
         }
