@@ -2,6 +2,7 @@
 
 <picture>
   <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://prnt.sc/LbKezfSiqSNN">
+  <source media="(prefers-color-scheme: dark)" srcset="https://prnt.sc/LbKezfSiqSNN">
 </picture>
 
 Filter hook to add new menu item:
