@@ -6,7 +6,7 @@ Filter hook to add new menu item:
 <code>apply_filters('ns_addon/add_menu_items', $menu_items);</code>
 
 Usage:
-
+<code>
 add_filter('ns_addon/add_menu_items', function($menu){
 	$items = [
 		 'nadim-bhai' => [
@@ -17,3 +17,4 @@ add_filter('ns_addon/add_menu_items', function($menu){
 	];
 	return array_merge($menu, $items);
 }, 10, 1);
+</code>
