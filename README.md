@@ -3,7 +3,7 @@
 
 Filter hook to add new menu item:
 
-apply_filters('ns_addon/add_menu_items', $menu_items);
+<code>apply_filters('ns_addon/add_menu_items', $menu_items);</code>
 
 Usage:
 
