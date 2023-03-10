@@ -1,8 +1,8 @@
 # ninja-shortcuts
 
 <picture>
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://prnt.sc/LbKezfSiqSNN">
-  <source media="(prefers-color-scheme: dark)" srcset="https://prnt.sc/LbKezfSiqSNN">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/nadim-cse/ninja-shortcuts/blob/main/assets/download.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/nadim-cse/ninja-shortcuts/blob/main/assets/download.png">
 </picture>
 
 Filter hook to add new menu item:
