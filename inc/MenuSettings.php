@@ -210,7 +210,7 @@ class MenuSettings
              ],
             'wpmanage-ninja-plugins-version' => [
                 'parent' => 'ninja-support-shortcuts-menu',
-                'title'  => 'List of WPManage Ninja Plugins Version',
+                'title'  => 'Our Plugins Version',
                 'url'    => 'plugins.php?s=fluent&plugin_status=all',
 
             ],
