@@ -73,6 +73,16 @@ class MenuSettings
                 'title'      => 'Fluent Forms',
                 'url'        => 'admin.php?page=fluent_forms',
             ],
+            'fluent-forms-api-log' => [
+                'parent' => 'fluent-forms-home',
+                'title'  => 'Api Logs',
+                'url'    => 'admin.php?page=fluent_forms_transfer#apilogs',
+            ],
+            'fluent-forms-payment-methods' => [
+                'parent' => 'fluent-forms-home',
+                'title'  => 'Payment Methods',
+                'url'    => 'admin.php?page=fluent_forms_settings&component=payment_settings%2F#/payment_methods',
+            ],
 
             'fluent-crm-home' => [
                 'parent'     => 'ninja-support-shortcuts-menu',
@@ -202,12 +212,7 @@ class MenuSettings
                     'onclick' => 'copyLoremIpsum(0); return false;',
                 ]
             ],
-            'wpmanage-ninja-plugins' => [
-                'parent' => 'ninja-support-shortcuts-menu',
-                'title'  => 'List of WPManage Ninja Plugins',
-                'url'    => 'plugins.php?s=fluent&plugin_status=all',
 
-             ],
             'wpmanage-ninja-plugins-version' => [
                 'parent' => 'ninja-support-shortcuts-menu',
                 'title'  => 'Our Plugins Version',
@@ -245,6 +250,28 @@ class MenuSettings
                 'meta'   => [
                     'onclick' => 'copyLoremIpsum('.FLUENTCAMPAIGN_PLUGIN_VERSION.'); return false;',
                 ]
+            ],
+//            'ninja-table-base' => [
+//                'parent' => 'wpmanage-ninja-plugins-version',
+//                'title'  => 'Ninja Tables base: '.defined(NINJA_TABLES_VERSION) ? NINJA_TABLES_VERSION: 'Not installed',
+//                'url'    => '#',
+//                'meta'   => [
+//                    'onclick' => 'copyLoremIpsum('.defined(NINJA_TABLES_VERSION)?NINJA_TABLES_VERSION: "Not installed".'); return false;',
+//                ]
+//            ],
+//            'ninja-table-pro' => [
+//                'parent' => 'wpmanage-ninja-plugins-version',
+//                'title'  => 'Ninja Tables pro: '.NINJAPROPLUGIN_VERSION,
+//                'url'    => '#',
+//                'meta'   => [
+//                    'onclick' => 'copyLoremIpsum('.NINJAPROPLUGIN_VERSION.'); return false;',
+//                ]
+//            ],
+            'wpmanage-ninja-plugins' => [
+                'parent' => 'ninja-support-shortcuts-menu',
+                'title'  => 'List of WPManage Ninja Plugins',
+                'url'    => 'plugins.php?s=fluent&plugin_status=all',
+
             ],
 
         ];
